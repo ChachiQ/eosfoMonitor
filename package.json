@@ -10,6 +10,7 @@
     "license": "ISC",
     "dependencies": {
         "app-root-path": "^2.1.0",
+        "console-stamp": "^0.2.6",
         "eosjs": "^16.0.0",
         "moment": "^2.22.2"
     },

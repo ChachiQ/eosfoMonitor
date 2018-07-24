@@ -1,3 +1,11 @@
+require('console-stamp')(console, {
+    pattern: 'yyyy/mm/dd HH:MM:ss',
+    label: false,
+    colors: {
+        stamp: 'yellow',
+        label: 'white',
+    }
+});
 var appRoot = require('app-root-path');
 
 const eosHelper = require('./eos/eosHelper');

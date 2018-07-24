@@ -1,8 +1,5 @@
-import path from 'path';
-var pwdFileName = path.format({ //the context path of last run
-    dir: __dirname,
-    base: '.pwd'
-})
+var appRoot = require('app-root-path');
+var pwdFileName = appRoot + "/.pwd"
 var pwd = JSON.parse(require('fs').readFileSync(pwdFileName));
 
 module.exports = {
