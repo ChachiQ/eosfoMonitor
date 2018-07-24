@@ -86,7 +86,7 @@ async function main() {
             await sleep(5000);
         } else {
             let leave = state.lottery_time - now;
-            console.log(`\n Game remain: ${moment.duration(leave,'seconds').humanize()}\n`)
+            console.log(`\n Game remain: ${moment.duration(leave,'seconds').humanize(true)}\n`)
             console.log('Current Game State:')
             console.log(state);
             console.log("\n")
