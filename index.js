@@ -39,7 +39,7 @@ async function betKeys(account, count) {
     try {
         let result = await contract.buykey({
             buyer: account,
-            team: "werewolf",
+            team: "hunter",
             keys: count
         }, {
             authorization: [`${account}@active`]
