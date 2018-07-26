@@ -81,7 +81,7 @@ async function main() {
             console.log(`\n\n\n !!!!!!!GAME of round ${CURRENT_ROUND} finished!!!!!!!!`);
             if (state.winner === MY_ACCOUNT) {
                 console.log("\n Congratulation, you are the winner !!!! \n\n");
-                withdraw(MY_ACCOUNT);
+                await withdraw(MY_ACCOUNT);
             } else {
                 console.log("Bad Luck, you are not the winner.");
             }
@@ -121,7 +121,7 @@ async function buy_once() {
         console.log(`\n\n\n !!!!!!!GAME of round ${CURRENT_ROUND} finished!!!!!!!!`);
         if (state.winner === MY_ACCOUNT) {
             console.log("\n Congratulation, you are the winner !!!! \n\n");
-            withdraw(MY_ACCOUNT);
+            await withdraw(MY_ACCOUNT);
         } else {
             console.log("Bad Luck, you are not the winner.");
         }
@@ -131,7 +131,7 @@ async function buy_once() {
     } else if (state.lottery_time - now <= 20) {
         if (state.winner !== MY_ACCOUNT) {
             console.log(`\n\n\n!!!!! GAME will finished, ready to show hand !!!!!!`);
-            betKeys(MY_ACCOUNT, 1);
+            await betKeys(MY_ACCOUNT, 1);
         } else {
             console.log(`until now, you are the winner!!!`);
         }
