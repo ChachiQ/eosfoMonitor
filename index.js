@@ -112,9 +112,40 @@ async function main() {
     }
 }
 
+async function buy_once() {
+    let state = await getRoundState();
+    let now = Date.now() / 1000;
+    if (now > state.lottery_time) {
+        console.log(`\n\n\n !!!!!!!GAME of round ${CURRENT_ROUND} finished!!!!!!!!`);
+        if (state.winner === MY_ACCOUNT) {
+            console.log("\n Congratulation, you are the winner !!!! \n\n");
+            withdraw(MY_ACCOUNT);
+        } else {
+            console.log("Bad Luck, you are not the winner.");
+        }
+        return;
+    } else if (now < state.start_time) {
+        console.log(`GAME of roun ${CURRENT_ROUND} not start yet, wait a moment...`);
+    } else if (state.lottery_time - now <= 40) {
+        if (state.winner !== MY_ACCOUNT) {
+            console.log(`\n\n\n!!!!! GAME will finished, ready to show hand !!!!!!`);
+            betKeys(MY_ACCOUNT, 1);
+        } else {
+            console.log(`until now, you are the winner!!!`);
+        }
+    } else {
+        let leave = state.lottery_time - now;
+        console.log(`\n Game remain: ${moment.duration(leave, 'seconds').humanize(true)}\n`)
+        console.log('Current Game State:')
+        console.log(state);
+        console.log("\n")
+    }
+}
+
 main();
-//betKeys(MY_ACCOUNT, 1)
+//betKeys(MY_ACCOUNT, 99999)
 //withdraw(MY_ACCOUNT);
+//buy_once();
 
 function sleep(ms = 0) {
     return new Promise(r => setTimeout(r, ms));
