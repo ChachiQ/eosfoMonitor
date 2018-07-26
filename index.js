@@ -90,7 +90,7 @@ async function main() {
             console.log(`GAME of roun ${CURRENT_ROUND} not start yet, wait a moment...`);
             await sleep(30000);
             continue;
-        } else if (state.lottery_time - now <= 15) {
+        } else if (state.lottery_time - now <= 11) {
             if (state.winner !== MY_ACCOUNT) {
                 console.log(`\n\n\n!!!!! GAME will finished, ready to show hand !!!!!!`);
                 await betKeys(MY_ACCOUNT, 1);
