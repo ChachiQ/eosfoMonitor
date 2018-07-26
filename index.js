@@ -90,7 +90,7 @@ async function main() {
             console.log(`GAME of roun ${CURRENT_ROUND} not start yet, wait a moment...`);
             await sleep(30000);
             continue;
-        } else if (state.lottery_time - now <= 60) {
+        } else if (state.lottery_time - now <= 40) {
             if (state.winner !== MY_ACCOUNT) {
                 console.log(`\n\n\n!!!!! GAME will finished, ready to show hand !!!!!!`);
                 betKeys(MY_ACCOUNT, 1);
@@ -143,10 +143,10 @@ async function buy_once() {
     }
 }
 
-main();
+//main();
 //betKeys(MY_ACCOUNT, 99999)
 //withdraw(MY_ACCOUNT);
-//buy_once();
+buy_once();
 
 function sleep(ms = 0) {
     return new Promise(r => setTimeout(r, ms));
