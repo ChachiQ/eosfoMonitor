@@ -13,7 +13,7 @@ const config = require(appRoot + "/config");
 const eos = eosHelper.Eos(config);
 const moment = require('moment');
 
-const F3D_CONTACT_NAME = "zyixjmpxrrpr";
+const F3D_CONTACT_NAME = "eosfoiowolfs";
 const CURRENT_ROUND = 1;
 const MY_ACCOUNT = config.wallet.defaultAccount;
 
@@ -39,6 +39,19 @@ async function getRoundState() {
     //    keys: 5763134 
     // }
     return res.rows[0];
+}
+
+async function withdraw(account) {
+    let contract = await eos.contract(F3D_CONTACT_NAME);
+    try {
+        let result = await contract.withdraw(account, {
+            authorization: [`${account}@active`]
+        })
+        console.log("\n withdraw success");
+        console.log(result);
+    } catch (err) {
+        console.log(JSON.parse(err).error.details[0].message);
+    }
 }
 
 async function betKeys(account, count) {
@@ -100,6 +113,8 @@ async function main() {
 }
 
 main();
+//betKeys(MY_ACCOUNT, 1)
+//withdraw(MY_ACCOUNT);
 
 function sleep(ms = 0) {
     return new Promise(r => setTimeout(r, ms));
