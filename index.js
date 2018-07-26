@@ -81,6 +81,7 @@ async function main() {
             console.log(`\n\n\n !!!!!!!GAME of round ${CURRENT_ROUND} finished!!!!!!!!`);
             if (state.winner === MY_ACCOUNT) {
                 console.log("\n Congratulation, you are the winner !!!! \n\n");
+                withdraw(MY_ACCOUNT);
             } else {
                 console.log("Bad Luck, you are not the winner.");
             }
