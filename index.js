@@ -93,8 +93,8 @@ async function main() {
         } else if (state.lottery_time - now <= 25) {
             if (state.winner !== MY_ACCOUNT) {
                 console.log(`\n\n\n!!!!! GAME will finished, ready to show hand !!!!!!`);
-                betKeys(MY_ACCOUNT, 1);
-                await sleep(2000)
+                await betKeys(MY_ACCOUNT, 1);
+                await sleep(1000)
             } else {
                 console.log(`until now, you are the winner!!!`);
                 await sleep(5000);
