@@ -94,6 +94,7 @@ async function main() {
             if (state.winner !== MY_ACCOUNT) {
                 console.log(`\n\n\n!!!!! GAME will finished, ready to show hand !!!!!!`);
                 betKeys(MY_ACCOUNT, 1);
+                await sleep(2000)
             } else {
                 console.log(`until now, you are the winner!!!`);
                 await sleep(5000);
@@ -127,7 +128,7 @@ async function buy_once() {
         return;
     } else if (now < state.start_time) {
         console.log(`GAME of roun ${CURRENT_ROUND} not start yet, wait a moment...`);
-    } else if (state.lottery_time - now <= 25) {
+    } else if (state.lottery_time - now <= 20) {
         if (state.winner !== MY_ACCOUNT) {
             console.log(`\n\n\n!!!!! GAME will finished, ready to show hand !!!!!!`);
             betKeys(MY_ACCOUNT, 1);
