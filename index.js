@@ -143,10 +143,10 @@ async function buy_once() {
     }
 }
 
-//main();
+main();
 //betKeys(MY_ACCOUNT, 99999)
 //withdraw(MY_ACCOUNT);
-buy_once();
+//buy_once();
 
 function sleep(ms = 0) {
     return new Promise(r => setTimeout(r, ms));
